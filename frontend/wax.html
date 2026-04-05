@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wax & pagnes - AfriLuxe</title>
+    <link rel="stylesheet" href="css/idex.css">
+</head>
+<body>
+  
+<script src="js/stock.js"></script>
+<script src="js/category-manager.js"></script>
+<!-- HEADER -->
+<header>
+    <div class="container header-container">
+        <h1><a href="index.html">AfriLuxe</a></h1>
+         <nav class="navig" aria-label="Navigation principale">
+            <ul class="nav-list">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="catalogue.html">Catalogue</a></li>
+                <li><a href="layettes.html">Layettes</a></li>
+                <li><a href="wax.html">wax & pagnes</a></li>
+                <li><a href="cosmetiques.html">Cosmetiques</a></li>
+                <li><a href="cart.html">Panier (0)</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<main>
+
+    <section class="wax-section">
+        <div class="container">
+            <h1>wax & pagnes</h1>
+            <p>Bienvenue dans notre section wax & pagnes !</p>
+        </div>
+        <h1 id="result-count" class="product-container">CHARGEMENT DES PRODUITS.....</h1>
+        <div id="product-list" class="product-container"></div>
+            
+            <div id="no-result" >
+                <p>Aucun produit disponible pour le moment.</p>
+            </div>
+        <script>
+    // On attend que le DOM soit chargé pour être sûr que les éléments existent
+    document.addEventListener('DOMContentLoaded', () => {
+        loadCategoryPage('wax');
+    });
+</script>
+    </section>
+</main>
+  <!-- FOOTER -->
+<footer>
+    <div class="container footer-container">
+
+        <section>
+            <h2>AfriLuxe</h2>
+            <p>Votre boutique en ligne de produits africains de qualité. Layettes, wax, cosmétiques naturels et bien plus.</p>
+        </section>
+
+        <section>
+            <h2>Boutique</h2>
+            <ul>
+                <li><a href="layettes.html">Layettes</a></li>
+                <li><a href="cosmetiques.html">Cosmétiques</a></li>
+                <li><a href="wax.html">Wax & pagnes</a></li>
+                <li><a href="catalogue.html">Tous les produits</a></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Informations</h2>
+            <ul>
+                <li><a href="#">A propos</a></li>
+                <li><a href="#">Politique de livraison</a></li>
+                <li><a href="#">Conditions générales</a></li>
+                <li><a href="#">Politique de retour</a></li>
+            </ul>
+        </section>
+        <section>
+            <h2>Contact</h2>
+            <address>
+                Email : contact@afriluxe.com<br>
+                Téléphone : +21653877879<br>
+                Adresse : 2634 Rue de la confiance, Conakry, Guinea
+            </address>
+        </section>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2026 AfriLuxe - Tous droits réservés</p>
+    </div>
+</footer>
+</body>
+</html>

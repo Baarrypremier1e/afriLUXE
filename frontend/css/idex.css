@@ -1,0 +1,840 @@
+/* --- VARIABLES & RESET --- */
+:root {
+    --gold: #d4af37; /* Couleur Or pour le luxe */
+    --primary: #1a1a1a; /* Noir profond */
+    --primary-foreground: #ffffff;
+    --secondary: #f4f4f4; /* Gris très clair */
+    --border: #e5e7eb;
+    --muted-foreground: #666666;
+    --container-width: 1200px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    color: var(--primary);
+    background-color: #fff;
+    
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.center {
+    text-align: center;
+}
+.container-main-products {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 20px;
+    background-color:lightgrey
+}
+/* --- BOUTONS --- */
+.btn {
+    display: inline-block;
+    background-color: var(--gold);
+    color: white;
+    padding: 12px 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.85rem;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+}
+.btn-gold {
+    background-color: #f3b93d; /* Jaune/Or de l'image */
+    color: #222;
+    border: none;
+    height: 50px;
+    padding: 0 40px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.3s;
+}
+.btn-gold:hover {
+    background-color: #e5a82d;
+}
+.btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* --- HEADER --- */
+header {
+    background: white;
+    border-bottom: 1px solid var(--border);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: var(--primary);
+}
+
+.nav-list {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-list a:hover {
+    color: var(--gold);
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    position: relative;
+    height: 85vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    color: white;
+}
+
+.hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.3), transparent);
+    z-index: -1;
+}
+
+.hero-content {
+    max-width: 600px;
+    margin-left: 10%;
+    padding: 20px;
+}
+
+.hero-content .subtitle {
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+/* --- FEATURES --- */
+.features {
+    background: var(--secondary);
+    padding: 40px 0;
+    border-bottom: 1px solid var(--border);
+
+}
+
+.features-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+}
+
+.feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.feature h2 {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.feature p {
+    font-size: 0.8rem;
+    color: var(--muted-foreground);
+}
+
+/* --- CATEGORIES --- */
+.categories {
+    padding: 80px 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header h2 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.see-more {
+    position: absolute; /* Important pour que left/bottom fonctionnent */
+    bottom: 20px;       /* Ajuste selon l'espace voulu en bas */
+    right: 20px;         /* Aligne à gauche avec une petite marge */
+    margin-top: 20px;
+    /* On retire le transform qui décalait le bouton de 50% vers la gauche */
+    transform: none;    
+}
+.category-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.category {
+    position: relative;
+    height: 450px;
+    overflow: hidden;
+}
+
+.category figure, .category img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+
+.category:hover img {
+    transform: scale(1.1);
+}
+
+.category h3 {
+    position: absolute;
+    bottom: 60px;
+    left: 30px;
+    color: white;
+    font-size: 1.8rem;
+    z-index: 2;
+}
+
+.category a {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    color: var(--gold);
+    font-weight: bold;
+    z-index: 2;
+}
+
+.category::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+}
+
+/* --- PRODUITS --- */
+.product-main {
+    background-color: #fafafa;
+}
+.product-card, .product-card img {
+     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+
+.card-btn {
+    position: absolute;
+    top: 70%;
+    left: 60%; /* On le décale un peu à droite de l'œil pour éviter la superposition */
+    transform: translateY(-50%); /* Aligne verticalement sur le centre */
+    
+    /* Style visuel */
+    font-size: 1.1rem;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 8px 12px;
+    border: none;
+    border-radius: 50%; /* Forme circulaire pour un look moderne */
+    cursor: pointer;
+    z-index: 2;
+    
+    /* ÉTAT PAR DÉFAUT : CACHÉ */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease; /* Animation fluide */
+}
+/* On affiche le bouton quand on survole le parent .product-card */
+.product-card:hover .card-btn {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Optionnel : petit effet d'agrandissement quand on survole l'icône elle-même */
+.card-btn:hover {
+    background: #f1b434; /* Change en orange au survol du bouton */
+    transform: translateY(-50%) scale(1.1);
+}
+.product-detail-link {
+    position: absolute;
+    top: 70%;
+    left: 40%; /* On centre à 50% */
+    transform: translate(-50%, -50%); /* Technique pour un centrage parfait */
+    
+    /* Ton style visuel */
+    font-size: 1.2rem;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 8px 12px;
+    border-radius: 50%; /* Cercle autour de l'œil */
+    z-index: 2;
+    
+    /* ÉTAT PAR DÉFAUT : CACHÉ */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease; /* Animation douce */
+}
+/* On suppose que le parent est .product-card ou .product-figure */
+.product-card:hover .product-detail-link {
+    opacity: 1;
+    visibility: visible;
+}
+.product-detail-link:hover {
+    background: #f1b434; /* Change en orange au survol du bouton */
+    transform: translateY(-50%) scale(1.1);
+}
+
+.product-card:hover img {
+    transform: scale(1.02);
+}
+
+.products {
+    padding: 80px 0;
+    background-color: #fafafa;
+}
+
+.product-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.product-title {
+    position: absolute;
+    top: 10px;        /* Distance du haut */
+    left: 10px;       /* Distance de la gauche */
+    /* Style visuel */
+    font-size: 0.9rem;
+    font-style: italic;
+    color: white;
+    background: rgba(0, 0, 0, 0.5); /* Fond semi-transparent pour la lisibilité */
+    padding: 4px 10px;
+    border-radius: 2px;
+    z-index: 2;       /* S'assure qu'il est au-dessus de l'image */
+    margin: 0; 
+           /* Reset du margin */
+}
+.product-info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.badge-new {
+    background: #d48806;
+    color: white;
+    padding: 2px 8px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+.product-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Sépare en deux colonnes égales */
+    gap: 50px;
+    align-items: center; /* Aligne le texte au milieu de la hauteur de l'image */
+    padding: 60px 20px;
+}
+.cta-group {
+    display: flex; /* Aligne la quantité et le bouton horizontalement */
+    align-items: center;
+    gap: 15px; /* Espace entre les deux */
+    margin-top: 30px;
+}
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    border: 1px solid #eee;
+    background: #f9f9f9;
+    border-radius: 2px;
+    height: 50px;
+}
+.quantity-selector button {
+    background: transparent;
+    border: none;
+    width: 40px;
+    height: 100%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #333;
+}
+.quantity-selector button:hover {
+    background: #ececec;
+}
+#qty {
+    width: 40px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+.product-figure {
+    position: relative;
+    overflow: hidden; /* Pour que rien ne dépasse */
+    margin: 0;
+}
+.product-name {
+    font-size: 1.1rem;
+    margin: 10px 0 5px;
+}
+.main-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color:rgb(241, 173, 14);
+    margin: 10px 0;
+}
+
+/* --- CTA (CONTACT) --- */
+.cta {
+    background-color: var(--primary);
+    color: white;
+    padding: 80px 0;
+}
+
+.cta h2 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
+.cta p {
+    margin-bottom: 30px;
+    opacity: 0.8;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- FOOTER --- */
+footer {
+    padding: 60px 0 20px;
+    background: #fff;
+    border-top: 1px solid var(--border);
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-container h2 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.footer-bottom {
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--muted-foreground);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .nav-list {
+        display: none; /* Cache le menu sur mobile pour simplification */
+    }
+}
+
+/* --- PAGE CATALOGUE HEADER --- */
+.catalogue-header {
+    background-color: var(--secondary);
+    padding: 60px 0;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 40px;
+}
+
+.catalogue-header h1 {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.catalogue-header p {
+    color: var(--muted-foreground);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* --- FILTRES --- */
+.filters {
+    margin-bottom: 40px;
+}
+
+.filter-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.categories-filter {
+    display: flex;
+    gap: 10px;
+}
+
+.categories-filter button {
+    background: transparent;
+    border: 1px solid var(--border);
+    padding: 8px 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.categories-filter button:hover,
+.categories-filter button.active {
+    background-color: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+.categories-filter button.active {
+    border-bottom: 2px solid var(--gold); /* Petit rappel doré */
+}
+
+/* --- TRI (SELECT) --- */
+.sort {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sort label {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.sort select {
+    padding: 8px 15px;
+    border: 1px solid var(--border);
+    background-color: white;
+    outline: none;
+    cursor: pointer;
+}
+
+/* --- RÉSULTATS --- */
+#result-count {
+    font-size: 0.85rem;
+    color: var(--muted-foreground);
+    margin-bottom: 20px;
+}
+
+.no-result {
+    text-align: center;
+    padding: 100px 0;
+    color: var(--muted-foreground);
+    font-style: italic;
+}
+
+/* --- PANIZER --- */
+/* 1. Le panneau (caché par défaut à droite) */
+.cart-drawer {
+    position: fixed;      /* Fixe par rapport à l'écran, pas à la page */
+    top: 0;
+    right: -450px;        /* Totalement sorti de l'écran à droite */
+    width: 400px;         /* Largeur du panneau */
+    height: 100vh;        /* Toute la hauteur de l'écran */
+    background: white;
+    z-index: 9999;        /* Par-dessus tout le monde */
+    box-shadow: -10px 0 30px rgba(0,0,0,0.2);
+    transition: right 0.4s ease; /* Animation de glissement */
+    display: flex;
+    flex-direction: column;
+}
+
+/* 2. La classe qui fait apparaître le panier */
+.cart-drawer.open {
+    right: 0;             /* On le remet à 0 pour qu'il soit visible */
+}
+
+/* 3. Le fond sombre (Overlay) */
+.cart-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Noir transparent */
+    z-index: 9998;        /* Juste en dessous du drawer */
+    display: none;        /* Caché par défaut */
+}
+
+/* 4. Afficher l'overlay quand le panier est ouvert */
+.cart-overlay.active {
+    display: block;
+}
+
+/* 5. Style rapide pour l'intérieur (Header & Footer du panier) */
+.cart-header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-footer {
+    padding: 20px;
+    border-top: 1px solid #eee;
+    background: #fdfdfd;
+}/* --- LE TIROIR (DRAWER) --- */
+.cart-drawer {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Caché par défaut à droite */
+    width: 400px;
+    max-width: 90%;
+    height: 100%;
+    background: #fff;
+    z-index: 2000;
+    transition: right 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -5px 0 20px rgba(0,0,0,0.15);
+}
+
+.cart-drawer.open {
+    right: 0; /* Apparaît quand on clique */
+}
+
+/* --- LE FOND SOMBRE (OVERLAY) --- */
+.cart-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1999;
+    display: none;
+}
+
+.cart-overlay.active {
+    display: block;
+}
+
+/* --- HEADER DU PANIER --- */
+.cart-header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cart-header h3 {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.close-cart {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* --- LISTE DES PRODUITS --- */
+.cart-items {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.cart-item {
+    display: flex;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f9f9f9;
+}
+
+.cart-item-info {
+    display: flex;
+    width: 100%;
+    gap: 15px;
+}
+
+.cart-product-img-container img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.cart-item-details {
+    flex: 1;
+}
+
+.cart-product-name {
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.cart-product-price {
+    color: #d4a017; /* Couleur dorée/orange de ton image */
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* --- CONTRÔLES DE QUANTITÉ --- */
+.cart-quantity-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-quantity-selector {
+    display: flex;
+    align-items: center;
+    background: #f5f5f5;
+    border-radius: 5px;
+    gap: 15px;
+    padding: 2px 5px;
+}
+
+.cart-quantity-selector button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.qty-number {
+    font-weight: bold;
+}
+
+.delete-btn  {
+    background: none;
+    border: none;
+    color: #ff4d4d;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/* --- FOOTER DU PANIER --- */
+.cart-footer {
+    padding: 20px;
+    border-top: 1px solid #eee;
+    background: #fff;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+#cart-total-amount {
+    color: #d4a017;
+}
+
+.btn-whatsapp {
+    width: 100%;
+    background-color: #f1b434; /* Orange de l'image */
+    color: #000;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.btn-empty {
+    width: 100%;
+    background: none;
+    border: none;
+    color: #888;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 0.9rem;
+}

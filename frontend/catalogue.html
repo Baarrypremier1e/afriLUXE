@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogue - AfriLuxe</title>
+    <meta name="description" content="Catalogue des produits AfriLuxe">
+    <link rel="stylesheet" href="css/idex.css">
+</head>
+<body>
+<header>
+    <div class="container header-container">
+        <h1 class="logo"><a href="index.html">AfriLuxe</a></h1>
+        <nav>
+            <ul class="nav-list">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="catalogue.html">Catalogue</a></li>
+                <li><a href="layettes.html">Layettes</a></li>
+                <li><a href="wax.html">Wax & Pagnes</a></li>
+                <li><a href="cosmetiques.html">Cosmétiques</a></li>
+                <li><a href="cart.html">Panier</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="catalogue-header">
+        <div class="container text-center">
+            <h1 id="catalog-title">Tous nos Produits</h1>
+            <p id="catalog-description">
+                Découvrez notre collection complète de produits africains de qualité.
+            </p>
+        </div>
+    </section>
+     <section class="filters">
+        <div class="container filter-container">
+
+            <!-- Catégories -->
+            <div class="categories-filter">
+                <button onclick="filterCategory(null)" class="active">Tout</button>
+                <button onclick="filterCategory('layettes')">Layette</button>
+                <button onclick="filterCategory('wax')">Wax</button>
+                <button onclick="filterCategory('cosmetiques')">Cosmétiques</button>
+            </div>
+
+            <!-- TRI -->
+            <div class="sort">
+                <label for="sort">Trier :</label>
+                <select id="sort" onchange="sortProducts()">
+                    <option value="default">Par défaut</option>
+                    <option value="price-asc">Prix croissant</option>
+                    <option value="price-desc">Prix décroissant</option>
+                    <option value="name">Nom A-Z</option>
+                </select>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="results">
+        <div class="container">
+            <p id="result-count">Sélection de nos plus beaux articles</p>
+
+            <div id="product-list" class="product-container">
+                <!-- Les produits seront injectés ici par JavaScript -->
+            </div>
+            <div id="no-result" class="no-result" style="display:none;">
+                <p>Aucun produit n'est disponible pour le moment.</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container footer-container">
+
+        <section>
+            <h2>AfriLuxe</h2>
+            <p>Votre boutique en ligne de produits africains de qualité. Layettes, wax, cosmétiques naturels et bien plus.</p>
+        </section>
+
+        <section>
+            <h2>Boutique</h2>
+            <ul>
+                <li><a href="layettes.html">Layettes</a></li>
+                <li><a href="cosmetiques.html">Cosmétiques</a></li>
+                <li><a href="wax.html">Wax & pagnes</a></li>
+                <li><a href="catalogue.html">Tous les produits</a></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Informations</h2>
+            <ul>
+                <li><a href="#">A propos</a></li>
+                <li><a href="#">Politique de livraison</a></li>
+                <li><a href="#">Conditions générales</a></li>
+                <li><a href="#">Politique de retour</a></li>
+            </ul>
+        </section>
+        <section>
+            <h2>Contact</h2>
+            <address>
+                Email : contact@afriluxe.com<br>
+                Téléphone : +21653877879<br>
+                Adresse : 2634 Rue de la confiance, Conakry, Guinea
+            </address>
+        </section>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2026 AfriLuxe - Tous droits réservés</p>
+    </div>
+</footer>
+<script src="js/product.js"></script>
+<script src="js/catalogue.js"></script>
+<script src="js/cart.js"></script>
+<div id="cart-drawer" class="cart-drawer">
+    <div class="cart-header">
+        <div class="cart-header-left">
+            <span class="icon">👜</span>
+            <h3>Mon Panier</h3>
+        </div>
+        <button class="close-cart" onclick="Cart.toggleCart()">✕</button>
+    </div>
+
+    <div id="cart-items-container" class="cart-items">
+        </div>
+
+    <div class="cart-footer">
+        <div class="cart-total">
+            <span>Total</span>
+            <span id="cart-total-amount">0 FCFA</span>
+        </div>
+        <button class="btn-whatsapp">COMMANDER VIA WHATSAPP</button>
+        <button class="btn-empty" onclick="Cart.clearCart()">Vider le panier</button>
+    </div>
+</div>
+
+<div id="cart-overlay" class="cart-overlay" onclick="toggleCart()"></div>
+</body>
+</html>

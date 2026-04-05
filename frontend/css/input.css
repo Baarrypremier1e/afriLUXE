@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@theme {
+  /* Indispensable pour que @apply fonctionne avec tes variables */
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-primary: hsl(var(--primary));
+  --color-border: hsl(var(--border));
+  --color-gold: hsl(var(--gold));
+  --color-gold-foreground: hsl(var(--gold-foreground));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+:root {
+  --background: 30 25% 97%;
+  --foreground: 20 20% 15%;
+  --primary: 32 80% 45%;
+  --border: 30 15% 88%;
+  --gold: 42 85% 55%;
+  --gold-foreground: 20 20% 15%;
+  --muted-foreground: 20 10% 50%;
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* On définit la classe AVANT de l'utiliser dans @apply */
+@utility border-border {
+  border-color: hsl(var(--border));
+}
+
+@layer base {
+  * {
+    @apply border-border; /* Maintenant ça va marcher */
+  }
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-body);
+  }
+}
+
+@layer components {
+  .btn-gold {
+    @apply bg-gold text-gold-foreground font-semibold px-8 py-3 uppercase tracking-widest text-sm transition-all;
+  }
+  
+  .section-header h2 {
+    font-family: var(--font-heading);
+    @apply text-3xl font-semibold;
+  }
+}
+
+/* Tes styles de panier en CSS pur (Gardés tels quels) */
+.cart-drawer {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 350px;
+    height: 100%;
+    background: #fff;
+    z-index: 51;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -2px 0 6px rgba(0,0,0,0.3);
+}

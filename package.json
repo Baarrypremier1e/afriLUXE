@@ -1,0 +1,28 @@
+{
+  "devDependencies": {
+    "tailwindcss": "^4.2.2"
+  },
+  "name": "afriluxe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tailwindcss -i ./src/index.css -o ./css/input.css --minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Baarrypremier1e/NewSHOP.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Baarrypremier1e/NewSHOP/issues"
+  },
+  "homepage": "https://github.com/Baarrypremier1e/NewSHOP#readme",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.2.2"
+  }
+}

@@ -1,0 +1,113 @@
+/* Container principal */
+.catalogue-container {
+  min-height: 100vh;
+  color: #1a1a1a;
+  font-family: sans-serif;
+}
+
+/* Header & Hero Section */
+.catalogue-header {
+  background-color: #f8f9fa; /* Équivalent bg-secondary/50 */
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.section-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.section-subheading {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+/* Layout principal */
+.catalogue-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.5rem 1rem;
+}
+
+/* Barre de filtres et tris */
+.filters-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.category-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Boutons de catégorie */
+.filter-btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: #f1f1f1;
+  color: #333;
+}
+
+.filter-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.filter-btn.active {
+  background-color: #000; /* Votre couleur Primary */
+  color: #fff;
+}
+
+/* Select de tri */
+.sort-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sort-select {
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+/* Grille de produits */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Mobile: 2 colonnes */
+  gap: 1rem;
+}
+
+/* Responsive : Tablettes et Desktop */
+@media (min-width: 768px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* État vide */
+.no-results {
+  text-align: center;
+  padding: 5rem 0;
+  color: #888;
+}
