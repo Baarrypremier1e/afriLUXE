@@ -1,1 +1,1 @@
-# NewSHOP 
+# afriLUXE 
